@@ -1,6 +1,6 @@
 ﻿namespace ToDoListPro.Entities
 {
-    public class A
+    public class TodoItem
     {
     }
 }
