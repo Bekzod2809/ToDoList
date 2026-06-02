@@ -8,7 +8,6 @@
         public string Description { get; set; }
         public string LevelName { get; set; }
         public bool IsCompleted { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
+       
     }
 }

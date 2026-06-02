@@ -2,7 +2,9 @@
 {
     public class TodoSortDto
     {
-        public string SortBy { get; set; } = "CreatedAt";
-        public bool IsAscending { get; set; } = false;
+        
+        public bool ? IsAscending { get; set; } = false;
+        public long ? TodoId { get; set; }
+        public long UserId { get; set; }
     }
 }
