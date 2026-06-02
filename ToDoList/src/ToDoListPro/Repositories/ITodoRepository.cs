@@ -4,10 +4,10 @@ namespace ToDoListPro.Repositories
 {
     public interface ITodoRepository
     {
-        Task<List<TodoItem>> GetAllAsync();
-        Task<TodoItem?> GetByIdAsync(int id);
-        Task AddAsync(TodoItem item);
-        Task UpdateAsync(TodoItem item);
-        Task DeleteAsync(int id);
+        Task<List<Todo>> GetAllAsync();
+        Task<Todo?> GetByIdAsync(long id);
+        Task AddAsync(Todo item);
+        Task UpdateAsync(Todo item);
+        Task DeleteAsync(long id);
     }
 }

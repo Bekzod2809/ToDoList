@@ -13,34 +13,34 @@ namespace ToDoListPro.Repositories
             _context = context;
         }
 
-        public async Task<List<TodoItem>> GetAllAsync()
+        public async Task<List<Todo>> GetAllAsync()
         {
-            return await _context.TodoItems.ToListAsync();
+            return await _context.Todos.ToListAsync();
         }
 
-        public async Task<TodoItem?> GetByIdAsync(int id)
+        public async Task<Todo?> GetByIdAsync(long id)
         {
-            return await _context.TodoItems.FindAsync(id);
+            return await _context.Todos.FindAsync(id);
         }
 
-        public async Task AddAsync(TodoItem item)
+        public async Task AddAsync(Todo item)
         {
-            await _context.TodoItems.AddAsync(item);
+            await _context.Todos.AddAsync(item);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(TodoItem item)
+        public async Task UpdateAsync(Todo item)
         {
-            _context.TodoItems.Update(item);
+            _context.Todos.Update(item);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(long id)
         {
-            var item = await _context.TodoItems.FindAsync(id);
+            var item = await _context.Todos.FindAsync(id);
             if (item != null)
             {
-                _context.TodoItems.Remove(item);
+                _context.Todos.Remove(item);
                 await _context.SaveChangesAsync();
             }
         }
