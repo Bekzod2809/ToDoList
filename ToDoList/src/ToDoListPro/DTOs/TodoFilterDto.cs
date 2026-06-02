@@ -1,8 +1,12 @@
-﻿namespace ToDoListPro.DTOs
+﻿using TodoApi.Entities;
+namespace TodoApi.DTOs;
+
+public class TodoFilterDto
 {
-    public class TodoFilterDto
-    {
-        public long? UserId { get; set; }
-        public string Title { get; set; }
-    }
+    public bool? IsCompleted { get; set; }
+    public Priority? Priority { get; set; }
+    public string? Category { get; set; }
+    public DateTime? DueDate { get; set; }
+    public int PageNumber { get; set; } = 1;
+    public int PageSize { get; set; } = 10;
 }

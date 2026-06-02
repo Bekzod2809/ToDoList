@@ -1,13 +1,19 @@
-﻿using ToDoListPro.Entities;
+﻿using TodoApi.DTOs;
+using TodoApi.Entities;
 
-namespace ToDoListPro.Repositories
+namespace TodoApi.Repositories;
+
+public interface ITodoRepository
 {
-    public interface ITodoRepository
-    {
-        Task<List<Todo>> GetAllAsync();
-        Task<Todo?> GetByIdAsync(long id);
-        Task AddAsync(Todo item);
-        Task UpdateAsync(Todo item);
-        Task DeleteAsync(long id);
-    }
+    Task<TodoItem> AddAsync(TodoItem item);
+    Task<(IReadOnlyList<TodoItem> Items, int TotalCount)> GetAllAsync(TodoFilterDto filter, TodoSortDto sort);
+    Task<TodoItem?> GetByIdAsync(int id);
+    Task<TodoItem?> UpdateAsync(TodoItem item);
+    Task<bool> DeleteAsync(int id);
+
+    // bonus
+    Task<IReadOnlyList<TodoItem>> GetAllNoPagingAsync();
+    Task<int> CountAsync(bool isCompleted);
+    Task<TodoItem?> GetNearestDueAsync();
+    Task<IReadOnlyList<TodoItem>> SearchAsync(string keyword, bool inDescription);
 }

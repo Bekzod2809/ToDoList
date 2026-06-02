@@ -1,10 +1,8 @@
-﻿namespace ToDoListPro.DTOs
+﻿using TodoApi.Entities;
+namespace TodoApi.DTOs;
+
+public class TodoSortDto
 {
-    public class TodoSortDto
-    {
-        
-        public bool ? IsAscending { get; set; } = false;
-        public long ? TodoId { get; set; }
-        public long UserId { get; set; }
-    }
+    public string? SortBy { get; set; } = "createdtime"; // createdtime|duedate|priority|title
+    public bool Descending { get; set; } = false;
 }
